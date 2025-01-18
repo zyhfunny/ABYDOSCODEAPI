@@ -26,7 +26,7 @@ Content-Type: application/json
 }
 ```
 
-**1.2º”√‹**
+**1.2Ω‚√‹**
 
 **GET:**
 
