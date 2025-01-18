@@ -1,12 +1,12 @@
 # ABYDOSCODEAPI
 
-***使用ba中阿拜多斯理事会成员的名称来加密字符串***
+***使用ba中阿拜多斯对策委员会成员的名称来加密字符串***
 
 ---
 
 ## 1. API请求格式
 
-**1.1加密**
+**1.1 加密**
 
 **GET:**
 
@@ -28,7 +28,7 @@ Content-Type: application/json
 }
 ```
 
-**1.2解密**
+**1.2 解密**
 
 **GET:**
 
@@ -77,5 +77,4 @@ Math.Floor(((int)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds)
 ## 3. 尾声
 
 **这只是一个*初中生*无聊攒出来的~~弱智~~玩意，如果有不足或错误可以指出，但不要骂我**<br>
-**感谢@hcymc提供的前端代码支持(虽然还没上传)**
-
+**感谢[@hcymc](https://github.com/hcymc)提供的前端代码支持(虽然还没上传)**
