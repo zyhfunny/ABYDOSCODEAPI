@@ -1,3 +1,5 @@
+using DecodeApi.Controllers;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodeApi.Controllers
@@ -6,6 +8,46 @@ namespace CodeApi.Controllers
     [Route("[controller]")]
     public class CodeController : ControllerBase
     {
+        [HttpGet]
+        public IActionResult Get([FromQuery] string input, int? key = null)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return BadRequest("Input is required.");
+            }
+            if (key == null)
+            {
+                return BadRequest("Key is null");
+            }
+            if (key == Math.Floor(((int)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds) + Math.Sqrt(((int)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds))))
+            {
+                string result = Code(input);
+                return Ok(new { result = result });
+            }
+            return BadRequest("Incorrect key");
+        }
+        [HttpPost]
+        public IActionResult Post([FromBody] ABYDOSCODEAPI.Model model)
+        {
+            return ProcessRequest(model.Input, model.Key);
+        }
+        private IActionResult ProcessRequest(string input, int? key = null)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return BadRequest("Input is required.");
+            }
+            if (key == null)
+            {
+                return BadRequest("Key is null");
+            }
+            if (key == Math.Floor(((int)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds) + Math.Sqrt(((int)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds))))
+            {
+                string result = Code(input);
+                return Ok(new { result = result });
+            }
+            return BadRequest("Incorrect key");
+        }
         private static readonly string[] n = new string[10] { "れ", "い", "に", "さ", "よ", "ご", "ろ", "な", "は", "き" };
         private static readonly Students[] s = new Students[5] {
             new Students("シロコ", 6),
@@ -58,25 +100,6 @@ namespace CodeApi.Controllers
                 otp += Hc((int)c) + "ユ";
             }
             return otp;
-        }
-
-        [HttpGet]
-        public IActionResult Get([FromQuery] string input,int? key = null)
-        {
-            if (string.IsNullOrEmpty(input))
-            {
-                return BadRequest("Input is required.");
-            }
-            if (key == null)
-            {
-                return BadRequest("Key is null");
-            }
-            if(key != Math.Floor(((int)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds) + Math.Sqrt(((int)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds))))
-            {
-                return BadRequest("Incorrect key");
-            }
-            string result = Code(input);
-            return Ok(new { result = result });
         }
     }
 }
