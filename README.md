@@ -61,4 +61,4 @@ math.floor(int((datetime.now() - datetime(1970, 1, 1)).total_seconds())+math.sqr
 ## 3. 尾声
 
 **这只是一个*初中生*无聊攒出来的~~弱智~~玩意，如果有不足或错误可以指出，但不要骂我**<br>
-**感谢@hcymc提供的前端代码支持**
+**感谢@hcymc提供的前端代码支持(虽然还没上传)**
