@@ -1,0 +1,6 @@
+@ABYDOSCODEAPI_HostAddress = http://localhost:5128
+
+GET {{ABYDOSCODEAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
