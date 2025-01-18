@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CodeApi.Controllers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DecodeApi.Controllers
@@ -11,7 +12,7 @@ namespace DecodeApi.Controllers
     {
         private static char[] n = new char[10] { 'れ', 'い', 'に', 'さ', 'よ', 'ご', 'ろ', 'な', 'は', 'き' };
         [HttpGet]
-        public ActionResult<string> Get([FromQuery] string input,int? key=null)
+        public ActionResult<string> Get([FromQuery] string input, int? key = null)
         {
             if (string.IsNullOrEmpty(input))
             {
@@ -21,14 +22,35 @@ namespace DecodeApi.Controllers
             {
                 return BadRequest("Key is null");
             }
-            if (key != Math.Floor(((int)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds) + Math.Sqrt(((int)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds))))
+            if (key == Math.Floor(((int)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds) + Math.Sqrt(((int)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds))))
             {
-                return BadRequest("Incorrect key");
+                string result = Decode(input);
+                return Ok(new { result = result });
             }
-            string result = Decode(input);
-            return Ok(new { result = result });
+            return BadRequest("Incorrect key");
         }
-
+        [HttpPost]
+        public IActionResult Post([FromBody] ABYDOSCODEAPI.Model model)
+        {
+            return ProcessRequest(model.Input, model.Key);
+        }
+        private IActionResult ProcessRequest(string input, int? key = null)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return BadRequest("Input is required.");
+            }
+            if (key == null)
+            {
+                return BadRequest("Key is null");
+            }
+            if (key == Math.Floor(((int)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds) + Math.Sqrt(((int)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds))))
+            {
+                string result = Decode(input);
+                return Ok(new { result = result });
+            }
+            return BadRequest("Incorrect key");
+        }
         private string to_num(string x)
         {
             string otp = "";
