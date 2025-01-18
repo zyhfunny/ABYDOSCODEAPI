@@ -1,7 +1,7 @@
 # ABYDOSCODEAPI
 
 ***使用ba中阿拜多斯理事会成员的名称来加密字符串***
-
+***
 ## 1. API请求格式
 
 **1.1加密**
@@ -25,7 +25,6 @@ Content-Type: application/json
     "Key": <your_key>
 }
 ```
-
 **1.2解密**
 
 **GET:**
@@ -50,11 +49,16 @@ Content-Type: application/json
 
 **注意：请将其中<your_ip>替换为你部署api的服务器ip地址(本地ip:127.0.0.1)、<your_input>替换为你想要操作的字符串、<your_key>替换为key(建议修改计算方式)，key默认计算方法：**
 
+**Python**
 ```python
 from datetime import datetime
 math.floor(int((datetime.now() - datetime(1970, 1, 1)).total_seconds())+math.sqrt(int((datetime.now() - datetime(1970, 1, 1)).total_seconds())))
 ```
+***
+## 2. 演示站点
+**还没建好qwq**
+***
+## 3. 尾声
 
-## 尾声
-
-**这只是一个*初中生*无聊攒出来的~~弱智~~玩意，如果有不足或错误可以指出，但不要骂我**
+**这只是一个*初中生*无聊攒出来的~~弱智~~玩意，如果有不足或错误可以指出，但不要骂我**<br>
+**感谢@hcymc提供的前端代码支持**
