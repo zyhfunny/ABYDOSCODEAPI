@@ -8,14 +8,14 @@
 
 **GET:**
 
-```xml
+```log
 GET /code?input=<your_input>&key=<your_key> HTTP/1.1
 Host: <your_ip>:5000
 ```
 
 **POST:**
 
-```json
+```log
 POST /code HTTP/1.1
 Host: <your_ip>:5000
 Content-Type: application/json
@@ -29,14 +29,14 @@ Content-Type: application/json
 
 **GET:**
 
-```xml
+```log
 GET /decode?input=<your_input>&key=<your_key> HTTP/1.1
 Host: <your_ip>:5000
 ```
 
 **POST:**
 
-```json
+```log
 POST /decode HTTP/1.1
 Host: <your_ip>:5000
 Content-Type: application/json
