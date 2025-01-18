@@ -50,6 +50,7 @@ Content-Type: application/json
 
 **注意：请将其中<your_ip>替换为你部署api的服务器ip地址(本地ip:127.0.0.1)、<your_input>替换为你想要操作的字符串、<your_key>替换为key(建议修改计算方式)，key默认计算方法：**
 
+**Python**
 ```python
 from datetime import datetime
 math.floor(int((datetime.now() - datetime(1970, 1, 1)).total_seconds())+math.sqrt(int((datetime.now() - datetime(1970, 1, 1)).total_seconds())))
