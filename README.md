@@ -6,7 +6,7 @@
 
 ## 1. API请求格式
 
-**1.1 加密**
+### 1.1 加密
 
 **GET:**
 
@@ -28,7 +28,7 @@ Content-Type: application/json
 }
 ```
 
-**1.2 解密**
+### 1.2 解密
 
 **GET:**
 
@@ -49,8 +49,7 @@ Content-Type: application/json
     "Key": <your_key>
 }
 ```
-
-**注意：请将其中<your_ip>替换为你部署api的服务器ip地址(本地ip:127.0.0.1)、<your_input>替换为你想要操作的字符串、<your_key>替换为key(建议修改计算方式)**<br>
+**注意：其中<your_ip>是你部署api的服务器的ip地址(本地ip:127.0.0.1)、<your_input>是你想要操作的字符串、<your_key>是你计算出的key(建议修改计算方式)**<br>
 **默认key计算方式：**
 
 **Python**
@@ -67,14 +66,31 @@ Math.Floor(((int)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds)
 ```
 
 ---
-
-## 2. 演示站点
+## 2. api响应格式
+```json
+{
+    "result":"<string>"
+}
+```
+### 示例(加密)：<br>
+**请求(GET)：**<br>
+```
+http://localhost:5000/code?input=test&key=<your_key>
+```
+**响应：**
+```json
+{
+    "result":"きいつシロコとにつノノミとユろいつシロコといつホシノとユきいつシロコといつノノミとユきいつシロコとにつノノミとユ"
+}
+```
+---
+## 3. 演示站点
 
 **还没建好qwq**
 
 ---
 
-## 3. 尾声
+## 4. 尾声
 
 **这只是一个*初中生*无聊攒出来的~~弱智~~玩意，如果有不足或错误可以指出，但不要骂我**<br>
 **感谢[@hcymc](https://github.com/hcymc)提供的前端代码支持(虽然还没上传)**
