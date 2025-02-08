@@ -86,7 +86,7 @@ http://localhost:5000/code?input=test&key=<your_key>
 ---
 ## 3. 演示站点
 
-[bacode.gohuo.fun](bacode.gohuo.fun)
+[bacode.gohuo.fun](http://bacode.gohuo.fun)
 
 ---
 
