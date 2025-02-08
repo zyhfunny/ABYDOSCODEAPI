@@ -1,12 +1,12 @@
 # ABYDOSCODEAPI
 
-***ʹ��ba�а��ݶ�˹�Բ�ίԱ���Ա�������������ַ���***
+***使用ba中阿拜多斯对策委员会成员的名称来加密字符串***
 
 ---
 
-## 1. API�����ʽ
+## 1. API请求格式
 
-### 1.1 ����
+### 1.1 加密
 
 **GET:**
 
@@ -28,7 +28,7 @@ Content-Type: application/json
 }
 ```
 
-### 1.2 ����
+### 1.2 解密
 
 **GET:**
 
@@ -49,8 +49,8 @@ Content-Type: application/json
     "Key": <your_key>
 }
 ```
-**ע�⣺����<your_ip>���㲿��api�ķ�������ip��ַ(����ip:127.0.0.1)��<your_input>������Ҫ�������ַ�����<your_key>����������key(�����޸ļ��㷽ʽ)**<br>
-**Ĭ��key���㷽ʽ��**
+**注意：其中<your_ip>是你部署api的服务器的ip地址(本地ip:127.0.0.1)、<your_input>是你想要操作的字符串、<your_key>是你计算出的key(建议修改计算方式)**<br>
+**默认key计算方式：**
 
 **Python**
 
@@ -66,31 +66,31 @@ Math.Floor(((int)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds)
 ```
 
 ---
-## 2. api��Ӧ��ʽ
+## 2. api响应格式
 ```json
 {
     "result":"<string>"
 }
 ```
-### ʾ��(����)��<br>
-**����(GET)��**<br>
+### 示例(加密)：<br>
+**请求(GET)：**<br>
 ```
 http://localhost:5000/code?input=test&key=<your_key>
 ```
-**��Ӧ��**
+**响应：**
 ```json
 {
-    "result":"�����ĥ������ȤˤĥΥΥߤȥ�����ĥ������Ȥ��ĥۥ��Τȥ椭���ĥ������Ȥ��ĥΥΥߤȥ椭���ĥ������ȤˤĥΥΥߤȥ�"
+    "result":"きいつシロコとにつノノミとユろいつシロコといつホシノとユきいつシロコといつノノミとユきいつシロコとにつノノミとユ"
 }
 ```
 ---
-## 3. ��ʾվ��
+## 3. 演示站点
 
-**��û����qwq**
+[bacode.gohuo.fun](bacode.gohuo.fun)
 
 ---
 
-## 4. β��
+## 4. 尾声
 
-**��ֻ��һ��*������*�����ܳ�����~~����~~���⣬����в����������ָ��������Ҫ����**<br>
-**��л[@hcymc](https://github.com/hcymc)�ṩ��ǰ�˴���֧��(��Ȼ��û�ϴ�)**
+**这只是一个*初中生*无聊攒出来的~~弱智~~玩意，如果有不足或错误可以指出，但不要骂我**<br>
+**感谢[@hcymc](https://github.com/hcymc)提供的前端代码支持**
